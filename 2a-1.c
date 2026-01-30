@@ -23,6 +23,7 @@ void Syracuse(size_t n) {
     p[i] = chainlength(odd);
     printf("%llu %llu\n", odd, p[i]);
   }
+  free(p);
 }
 
 int main(int argc, char *argv[]) {
