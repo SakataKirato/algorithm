@@ -70,7 +70,3 @@ int main(int argc, char *argv[]) {
   fclose(fp);
   return 0;
 }
-
-// brew install gmp
-// brew reinstall gmp
-// gcc 2a-3.c -I/opt/homebrew/include -L/opt/homebrew/lib -lgmp

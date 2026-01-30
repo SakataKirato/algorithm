@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define N 200000
 
 unsigned long long chainlength(unsigned long long n) {
   unsigned long long length = 0;
