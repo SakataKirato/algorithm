@@ -8,21 +8,22 @@ void chainlength(mpz_t n, mpz_t length) {
   mpz_set_ui(length, 0); // length = 0
 
   while (1) {
-    if (mpz_cmp_ui(t, 1) != 0) {
+    if (mpz_cmp_ui(t, 1) != 0) { // if(t == 1)
       gmp_printf("%Zd,", t); // print t
     } else {
       gmp_printf("%Zd\n", t); // print t
     }
-    mpz_add_ui(length, length, 1); // length++
+    mpz_add_ui(length, length, 1); //length++
 
-    if (mpz_cmp_ui(t, 1) == 0) // if (t == 1)
+    if (mpz_cmp_ui(t, 1) == 0)
       break;
 
-    mpz_mul_ui(t, t, 3); // t = 3*t
-    mpz_add_ui(t, t, 1); // t = t+1
+    mpz_mul_ui(t, t, 3); // t = 3 * t
+    mpz_add_ui(t, t, 1); // t = t + 1
 
-    while (mpz_even_p(t)) {     // while even
-      mpz_divexact_ui(t, t, 2); // t /= 2
+    unsigned long long s = mpz_scan1(t, 0); //s = 初めて1が来るbitの位置
+    if (s > 0) {
+      mpz_tdiv_q_2exp(t, t, s); // t/2^s
     }
   }
 
